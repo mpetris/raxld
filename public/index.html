@@ -28,7 +28,7 @@
 
       #page {
         background-color: #f0f0f0;
-        width: 750px;
+        width: 950px;
         margin: 0;
         margin-left: auto;
         margin-right: auto;
@@ -40,7 +40,7 @@
         border: 3px solid #aaa;
         border-top: none;
         padding: 25px;
-        width: 500px;
+        width: 700px;
       }
 
       #sidebar {
@@ -192,6 +192,7 @@
             <ul class="links">
               <li><a href="http://interedition.eu/">Interedition Web site</a></li>
               <li><a href="http://interedition.eu/wiki/">Interedition Wiki</a></li>
+              <li><a href="http://dev.interedition.eu/">Interedition dev./demo server</a></li>
               <li><a href="http://www.openannotation.org">Open Annotation Collaboration</a></li>
             </ul>
           </li>
@@ -205,37 +206,44 @@
         </div>
 
         <div id="getting-started">
-          <h1>Getting started</h1>
-
+   <h1>Services offered</h1>
+          <h2>Specify callback=foo as a query param to any of these services to get your JSON output wrapped in a function foo (JSONP)</h2>
           <ol>
             <li>
               <h2>Store annotation body and get a URI for it [optional]</h2>
-              <p>POST JSON to http://interedition.performantsoftware.com/annotation_bodies like this one:<br/>
+              <p>POST JSON to http://demo.interedition.eu/annotation_bodies like this one:<br/>
                  { "mime_type" : "text/html", "content" : "This is a &lt;b&gt;bold&lt;/b&gt; annotation!" }
                  <br/>You will receive a 302 response redirecting you to a freshly-minted URI for it.</p>
             <li>
               <h2>Store a new annotation and get a URI for it</h2>
-              <p>POST JSON to http://interedition.performantsoftware.com/annotations like the following: <br/>
-{ "author_uri" : "http://people.org/asaf_bartov", "body_uri" : "http://interedition.performantsoftware.com/annotation_bodies/1", "targets" : [ { "uri" : "http://example.com/texts/Alice_in_Wonderland", "constraint" : { "checksum" : "fee1dead", "position" : "140-147", "context" : "some useful buffer for diff-like contextualizing" } } ] }
+              <p>POST JSON to http://demo.interedition.eu/annotations like the following: <br/>
+{ "author_uri" : "http://people.org/asaf_bartov", "body_uri" : "http://demo.interedition.eu/annotation_bodies/1", "targets" : [ { "uri" : "http://example.com/texts/Alice_in_Wonderland", "constraint" : { "constraint_type" : "xpath", "constraint" : "//TEI.2/foo/bar" } } ] }
 
               <br/> (if your annotation body is not already URI-addressable, use annotation body URI from previous step</p>
             </li>
 
             <li>
               <h2>Retrieve an annotation</h2>
-              <p>GET http://interedition.performantsoftware.com/annotations/1 with curl with an "Accept: application/json" header to get the first annotation etc.<br/>You will get JSON like: <br/>
-{"annotation":<b>{"annotation_body"</b>:{"uri":"http://interedition.performantsoftware.com/annotation_bodies/1","mime_type":"text/html","created_at":"2011-10-09T12:07:50Z","updated_at":"2011-10-09T12:08:51Z"},<b>"annotation_target_instances"</b>:[{"annotation_target_instance":{"annotation_constraint":{"position":"140-147","checksum":"fee1dead","context":"some useful buffer for diff-like contextualizing","created_at":"2011-10-09T12:08:51Z","updated_at":"2011-10-09T12:08:51Z"},<b>"annotation_target_info"</b>:{"uri":"http://example.com/texts/Alice_in_Wonderland","mime_type":null}}}]}}
-</p>
+              <p>GET http://demo.interedition.eu/annotations/1 with curl with an "Accept: application/json" header to get the first annotation etc.<br/>You will get JSON like: <br/>
+{"annotation":<b>{"annotation_body"</b>:{"uri":"http://demo.interedition.eu/annotation_bodies/1","mime_type":"text/html","created_at":"2011-10-09T12:07:50Z","updated_at":"2011-10-09T12:08:51Z"},<b>"annotation_target_instances"</b>:[{"annotation_target_instance":{"annotation_constraint":{"constraint_type" : "marco's", "constraint" : "{ "position":"140-147","checksum":"fee1dead","context":"some useful buffer for diff-like contextualizing"}","created_at":"2011-10-09T12:08:51Z","updated_at":"2011-10-09T12:08:51Z"},<b>"annotation_target_info"</b>:{"uri":"http://example.com/texts/Alice_in_Wonderland","mime_type":null}}}]}}</p>
             </li>
 
             <li>
-              <h2>Query available annotations for a target URI: GET /annotations/query?q=your_target_uri_here</h2>
-              <p>and Accept: application/json.  You'll get a JSON array of annotations that target it.  Then you can look up the annotations individually with a GET request for this URIs, with an Accept: application/json header.
+              <h2>Query available annotations for a target URI: GET http://demo.interedition.eu/annotations/query?q=your_target_uri_here</h2>
+              <p>and Accept: application/json.  You'll get a JSON array of known annotations that target it.  Then you can look up the annotations individually with a GET request for this URIs, with an Accept: application/json header.
               </p>
+            </li>
+            <li><h2>Render a TEI document into HTML with any annotations stored on this server for it: GET http://demo.interedition.eu/annotations/render_annotated_tei?uri=your_TEI_document_here</h2>
+            <p>an XHTML rendering of the TEI document will be returned, with any known annotations inserted according to the XPath constraints stored in the annotations.  Note that the annotations are currently <i>assumed</i> to be valid XPath expressions that reflect an existing position and word-count in the TEI file.</p>
             </li>
           </ol>
           <h1>Additional Functions</h1>
-          <ul><li><h2>Update an annotation body</h2><p>PUT http://interedition.performantsoftware.com/annotation_bodies/1 with curl -X PUT and a "Content-Type: application/json" header, and the updated JSON object in the body.  JSON must look like the JSON returned by GETting the annotation body.</p></li>
+          <ul><li><h2>Update an annotation body</h2><p>PUT http://demo.interedition.eu/annotation_bodies/1 with curl -X PUT and a "Content-Type: application/json" header, and the updated JSON object in the body.  JSON must look like the JSON returned by GETting the annotation body.</p></li>
+<li><h2>Create Geonames-based annotations for a list of tokens and target URIs</h2>
+<p>POST <b>http://demo.interedition.eu/annotations/annotate_with_geonames</b> with a plaintext body of TAB-separated values.</p><p>The expected file format is:</p><p>
+&lt;token&gt; &lt;TAB&gt; &lt;document-URI&gt; &lt;TAB&gt; &lt;XPath1,frequency&gt; &lt;TAB&gt; &lt;XPath2,frequency&gt; ...</p><p>
+If you Accept: application/json, a list of URIs for the annotations created will be returned.  Otherwise, an HTML page with an annotation count and a list of URIs is returned.</p>
+</li>
           </ul>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <h1>Texts list</h1>
 <table>
 <% @texts.each do |t| %>
-<tr><td><%= link_to t.title, t %></td><td><%= t.annotations.count %></td><td><%= link_to 'Harvest now!', harvest_text_path(t) %></td></tr>
+<tr><td><%= link_to t.title, t %></td><td><%= t.annotations.count %></td><td><%= link_to 'Harvest now!', harvest_text_path(t) %></td><td><%= link_to 'Suggest Geoname annotations', suggest_geonames_text_path(t) %></td></tr>
 <% end %>
 </ul>

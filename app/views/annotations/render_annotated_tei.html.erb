@@ -1,0 +1,16 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
+<script type="text/javascript">
+initGUI = function() {
+//	$('.OAC_Annotation').dialog();
+	$('OAC_Annotation').dialog();
+        $('OAC_Annotation').click( function() {
+          console.log('annotation clicked!');
+        })
+
+}
+
+initGUI();
+</script>
+
+<%= raw(@xhtml) %>

@@ -1,0 +1,13 @@
+<h1>Geonames Suggester results: </h1>
+<p>Found <%= @geoname_annos.count %> city terms and created new annotations for them.</p>
+<% if @geoname_annos.count > 0 %>
+<h2>Dumping new annotations:</h2>
+<ol>
+<% @geoname_annos.each do |a| %>
+<li><%= a.uri %> -- <%= raw(a.annotation_body.content) %>
+<% end %>
+</ol>
+<% end %>
+<h2>Back</h2>
+<p>Go <%= link_to 'back to the text list', texts_path %>.</p>
+

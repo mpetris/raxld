@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Raxld</title>
+  <link href="/stylesheets/scaffold.css?1315354761" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/javascripts/jquery.js?1321927890" type="text/javascript"></script>
+<script src="/javascripts/application.js?1315354761" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="2TNXvSlRQDYg/W/FxzXYhm2onD+7SYA5Ljn4HNb5duI=" name="csrf-token" />
+</head>
+<body>
+
+<script type="text/javascript" src="/javascripts/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	console.log('ready!');
+//	$('.OAC_Annotation').dialog();
+        $('OAC_Annotation').click( function() {
+          console.log('annotation clicked!');
+        })
+});
+</script>
+
+<h1>Test<</h1>
+<p>  The word 'moose' in the following line should have an aesthetically-pleasing annotation:</p>
+<p> I never met a <OAC_Annotation content="text of annotation">moose</OAC_Annotation> I didn't like. </p>
+
+
+</body>
+</html>

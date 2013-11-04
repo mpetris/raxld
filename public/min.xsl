@@ -4,7 +4,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:template match="OAC_Annotation">
-    <span style="padding: 5px; background-color: yellow; border-style: solid; border-width: 4px;" class="OAC_Annotation">
+    <span style="padding: 1px; background-color: yellow; border-style: solid; border-width: 1px;" class="OAC_Annotation">
     <xsl:apply-templates/>
     </span>
   </xsl:template>

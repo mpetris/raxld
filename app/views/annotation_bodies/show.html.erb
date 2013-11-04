@@ -1,1 +1,6 @@
-<%= @annotation_body.uri %>
+<% output = @annotation_body.content || ''
+   if @annotation_body.mime_type != 'text/html' 
+     output = "<b>Warning: this annotation body's MIME type is #{@annotation_body.mime_type} and not text/html.  The following may not please your browser...</b><br/>"+output
+   end %>
+
+<%= output %>

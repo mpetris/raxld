@@ -1,11 +1,11 @@
 To-Do List for the Interedition Open Annotation Collaboration Server
+(feel free to e-mail asaf.bartov@gmail.com to agitate for a feature from the list below!)
 
-- Fix insertion logic
-  - sort annotations by start position
-  - handle overlapping annotations correctly
-- Add support for line= positions
-- Improve look of annotated text renderer
-- Add support for images as annotation targets in the renderer
+- make a proper README, add a version number
+- update sample JSON files to reflect new, generic constraint semantics
+- update sample JSON dir with files and curl command lines for all operations
+- add a convenience script to the sample JSON dir to automatically replace the server IP with a command line argument.
+- add an option to the annotations query that dumps the annotations in full, not just their URIs
 - Support editing annotations with PUT operations
 - Implement access control (API keys?)
 - Make annotations versioned entities?
@@ -15,4 +15,12 @@ To-Do List for the Interedition Open Annotation Collaboration Server
 - Add an HTML interface to everything beside the renderer
 - Add query options (by author, by annotation type)
 - Accept and emit RDF
+- Add a test suite
 
+==Old rendered (Würzburg 2011) logic==
+- Fix insertion logic
+  - sort annotations by start position
+  - handle overlapping annotations correctly
+- Add support for line= positions
+- Improve look of annotated text renderer
+- Add support for images as annotation targets in the renderer

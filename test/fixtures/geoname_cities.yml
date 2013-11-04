@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  geo_id: MyString
+  label: MyString
+  alt_labels: MyString
+  latitude: MyString
+  longitude: MyString
+  feature_class: MyString
+  feature_code: MyString
+  country_code: MyString
+  alt_country_code: MyString
+  population: 1
+  elevation: 1
+  timezone: MyString
+  modification_date: MyString
+
+two:
+  geo_id: MyString
+  label: MyString
+  alt_labels: MyString
+  latitude: MyString
+  longitude: MyString
+  feature_class: MyString
+  feature_code: MyString
+  country_code: MyString
+  alt_country_code: MyString
+  population: 1
+  elevation: 1
+  timezone: MyString
+  modification_date: MyString

@@ -1,0 +1,8 @@
+<h1>Geoname Annotation results</h1>
+
+<%= @geoname_annos.count %> Geoname-based annotations created and stored.  URIs below:
+<ol>
+<% @geoname_annos.each do |anno| %>
+<li><%= anno.uri %> -- <%= raw(anno.annotation_body.content) %>
+<% end %>
+</ol>

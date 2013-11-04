@@ -13,6 +13,8 @@ gem 'spira'
 #gem 'ruby-debug'
 gem 'sparql-client'
 gem 'ruby-xslt'
+gem 'activerecord-import'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'rest-client'
@@ -25,7 +27,7 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
+gem 'nokogiri'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
@@ -37,3 +39,5 @@ gem 'ruby-debug19', :require => 'ruby-debug'
 # end
 
 gem 'rabl' # for custom JSON rendering
+#gem 'sundawg_country_codes' # for country code lookup
+gem 'carmen'

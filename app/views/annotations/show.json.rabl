@@ -4,7 +4,7 @@ child :annotation_body do
 end
 child :annotation_target_instances do
   child :annotation_constraint do
-    attribute :position, :checksum, :context, :created_at, :updated_at
+    attribute :constraint, :constraint_type, :created_at, :updated_at
   end
   child :annotation_target_info do
     attribute :uri, :mime_type

@@ -10,6 +10,8 @@ Raxld::Application.routes.draw do
     collection do
       get 'query'
       get 'render_annotated'
+      post 'annotate_with_geonames'
+      get 'render_annotated_tei'
     end
   end
   match '/annotations', :controller => :annotations, :action => :options, :constraints => {:method => 'OPTIONS'}
@@ -18,6 +20,7 @@ Raxld::Application.routes.draw do
  resources :texts do
    member do
      get 'harvest'
+     get 'suggest_geonames'
      get 'reset'
      get 'suggest'
    end

@@ -27,6 +27,9 @@ GEM
       activesupport (= 3.1.0)
       arel (~> 2.2.1)
       tzinfo (~> 0.3.29)
+    activerecord-import (0.2.8)
+      activerecord (~> 3.0pre)
+      activerecord (~> 3.0pre)
     activeresource (3.1.0)
       activemodel (= 3.1.0)
       activesupport (= 3.1.0)
@@ -37,6 +40,7 @@ GEM
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    carmen (0.2.12)
     columnize (0.3.4)
     erubis (2.7.0)
     hike (1.2.1)
@@ -51,6 +55,7 @@ GEM
     mime-types (1.16)
     multi_json (1.0.3)
     mysql (2.8.1)
+    nokogiri (1.5.0)
     polyglot (0.3.2)
     promise (0.3.0)
     rabl (0.3.0)
@@ -121,7 +126,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-import
+  carmen
   mysql
+  nokogiri
   rabl
   rails
   rest-client

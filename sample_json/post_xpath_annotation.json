@@ -1,0 +1,1 @@
+{ "author_uri" : "http://people.org/asaf_bartov", "body_uri" : "http://50.56.215.106/annotation_bodies/1", "targets" : [ { "uri" : "http://50.56.215.106/rambles.xml", "constraint" : { "constraint" : "//TEI.2[1]/text[1]/body[1]/div[3]/div[1]/div[1]/p[1]", "constraint_type" : "xpath_and_wordcount" } } ] }
